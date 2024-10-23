@@ -1,0 +1,102 @@
+%YAML:1.0
+
+#--------------------------------------------------------------------------------------------
+# Camera Parameters. Adjust them!
+#--------------------------------------------------------------------------------------------
+File.version: "1.0"
+
+Camera.type: "PinHole"
+
+# Camera calibration and distortion parameters (OpenCV) 
+Camera1.fx: 455.77496337890625 # 458.654
+Camera1.fy: 456.319091796875 # 457.296
+Camera1.cx: 497.1180114746094
+Camera1.cy: 251.58502197265625
+
+Camera1.k1: -0.03597196191549301
+Camera1.k2: 0.08101943135261536
+Camera1.p1: -0.00028405245393514633
+Camera1.p2: 0.0011874435003846884
+Camera1.k3: -0.03709280863404274
+
+# Camera resolution
+Camera.width: 1024
+Camera.height: 544
+
+Camera.newWidth: 1024
+Camera.newHeight: 544
+
+# Camera frames per second 
+Camera.fps: 10
+
+# Color order of the images (0: BGR, 1: RGB. It is ignored if images are grayscale)
+Camera.RGB: 1
+
+# Transformation from camera to body-frame (imu)
+IMU.T_b_c1: !!opencv-matrix
+   rows: 4
+   cols: 4
+   dt: f
+   # multisense - novatel/imu_frame
+   data: [0.9766334, -0.0077382, -0.2147728, -0.490,
+          -0.0081703, -0.9999660, -0.0011243, 0.054,
+         -0.2147568, 0.0028528, -0.9766634, 0.133,
+         0.0, 0.0, 0.0, 1.0]
+   #data: [0.976, 0.025, -0.217, -0.403,
+   #      -0.024, 1.000, 0.006, -0.144,
+   #      0.217, -0.001, -0.976, -0.114,
+   #      0.000, 0.0000, 0.000, 1.000]
+   # multisense left camera - multisense accel
+   #data: [4.89658314e-12, -1.00000000e+00, -5.55111752e-17,  7.60000000e-02,
+   #      1.00000000e+00,  4.89658314e-12,  0.00000000e+00,  1.35000000e-02,
+   #      0.00000000e+00, -5.55111512e-17,  1.00000000e+00, -7.04600000e-04,
+   #      0.00000000e+00,  0.00000000e+00,  0.00000000e+00,  1.00000000e+00]
+   #data: [4.89658314e-12,  1.00000000e+00,  2.71815085e-28, -1.35000000e-02,
+   #      -1.00000000e+00,  4.89658314e-12, -5.55111752e-17,  7.60000000e-02,
+   #      -5.55111512e-17,  2.71814967e-28,  1.00000000e+00,  7.04600000e-04,
+   #      0.00000000e+00,  0.00000000e+00,  0.00000000e+00,  1.00000000e+00]
+   #data: [4.89658314e-12,  0.00000000e+00,  1.00000000e+00,  4.50000000e-03,
+   #      0.00000000e+00,  1.00000000e+00,  0.00000000e+00,  2.90000000e-02,
+   #      -1.00000000e+00,  0.00000000e+00,  4.89658314e-12, -1.35000000e-02,
+   #      0.00000000e+00,  0.00000000e+00,  0.00000000e+00,  1.00000000e+00]
+# IMU noise
+IMU.NoiseGyro: 1.6968e-03 #1.6968e-04
+IMU.NoiseAcc: 5.0e-3 #2.0e-3
+IMU.GyroWalk: 1.9393e-05 
+IMU.AccWalk: 3.0000e-02 # 3e-03
+IMU.Frequency: 100.0 # novatel 100, multisense 409.5
+
+#--------------------------------------------------------------------------------------------
+# ORB Parameters
+#--------------------------------------------------------------------------------------------
+
+# ORB Extractor: Number of features per image
+ORBextractor.nFeatures: 3000 # 1000
+
+# ORB Extractor: Scale factor between levels in the scale pyramid 	
+ORBextractor.scaleFactor: 1.2
+
+# ORB Extractor: Number of levels in the scale pyramid	
+ORBextractor.nLevels: 8
+
+# ORB Extractor: Fast threshold
+# Image is divided in a grid. At each cell FAST are extracted imposing a minimum response.
+# Firstly we impose iniThFAST. If no corners are detected we impose a lower value minThFAST
+# You can lower these values if your images have low contrast			
+ORBextractor.iniThFAST: 5
+ORBextractor.minThFAST: 7
+
+#--------------------------------------------------------------------------------------------
+# Viewer Parameters
+#--------------------------------------------------------------------------------------------
+Viewer.KeyFrameSize: 0.05
+Viewer.KeyFrameLineWidth: 1.0
+Viewer.GraphLineWidth: 0.9
+Viewer.PointSize: 2.0
+Viewer.CameraSize: 0.08
+Viewer.CameraLineWidth: 3.0
+Viewer.ViewpointX: 0.0
+Viewer.ViewpointY: -1.7
+Viewer.ViewpointZ: 0.8
+Viewer.ViewpointF: -500.0
+

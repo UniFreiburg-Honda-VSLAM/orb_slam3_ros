@@ -8,11 +8,12 @@
 
         <!-- Parameters for original ORB-SLAM3 -->
         <param name="voc_file"      type="string" value="$(find orb_slam3_ros)/orb_slam3/Vocabulary/ORBvoc.txt.bin"/>
-        <param name="settings_file" type="string" value="$(find orb_slam3_ros)/config/Monocular/EuRoC.yaml"/>
+        <param name="settings_file" type="string" value="$(find orb_slam3_ros)/config/Monocular/td2.yaml"/>
 
         <!-- Parameters for ROS -->
         <param name="world_frame_id"    type="string"   value="sensor_init" />
         <param name="cam_frame_id"      type="string"   value="multisense" />
+        <!-- <param name="cam_frame_id"      type="string"   value="multisense/left_camera_optical_frame" /> gives slightly different results -->
         <param name="enable_pangolin"   type="bool"     value="true" />
     </node>
     
